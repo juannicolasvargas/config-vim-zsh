@@ -33,6 +33,7 @@ alias product="cd ~/monokera/product-definition-service"
 alias policy="cd ~/monokera/policy-service"
 alias pricing="cd ~/monokera/pricing-service"
 alias billing="cd ~/monokera/billing-service"
+alias document="cd ~/monokera/document-service"
 alias sdk="cd ~/monokera/monokera-sdk-ruby"
 alias v=openVim
 
