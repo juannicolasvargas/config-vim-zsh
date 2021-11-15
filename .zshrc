@@ -24,6 +24,7 @@ export PATH="$PATH:$HOME/sdk/flutter/bin"
 plugins=(
   git
   zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -35,6 +36,10 @@ alias pricing="cd ~/monokera/pricing-service"
 alias billing="cd ~/monokera/billing-service"
 alias document="cd ~/monokera/document-service"
 alias sdk="cd ~/monokera/monokera-sdk-ruby"
+alias home="~"
+alias ls='exa -lbGF --group-directories-first'
+alias la='exa -lbGF -la --group-directories-first'
+alias lt='exa --tree --level=2'
 alias v=openVim
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

@@ -15,37 +15,28 @@ nnoremap <Leader>; $a;<Esc>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
+
 " shorter commands
 cnoreabbrev tree NERDTreeToggle
-cnoreabbrev blame Gblame
 cnoreabbrev find NERDTreeFind
-cnoreabbrev diff Gdiff
 
 " plugs
 map <Leader>nt :NERDTreeFind<CR>
 map <Leader>p :Files<CR>
 map <Leader>ag :Ag<CR>
 
-" tmux navigator
-nnoremap <silent> <Leader><C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <Leader><C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <Leader><C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <Leader><C-l> :TmuxNavigateRight<cr>
-
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> cd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Remap surround to lowercase s so it does not add an empty space
 xmap s <Plug>VSurround
 " diagnostics
 nnoremap <leader>P :let @*=expand("%")<CR>
 
-" tabs navigation
-map <Leader>h :tabprevious<cr>
-map <Leader>l :tabnext<cr>
+" indented
+map <Leader>l gg=G<cr>
 
 " buffers
 map <Leader>ob :Buffers<cr>
@@ -66,19 +57,24 @@ nnoremap <C-j> 10<C-e>
 nnoremap <C-k> 10<C-y>
 nmap <Leader>s <Plug>(easymotion-s2)
 
-" git
-nnoremap <Leader>G :G<cr>
+" git and gv
+"nnoremap <Leader>G :G<cr>
 nnoremap <Leader>gp :Gpush<cr>
-nnoremap <Leader>gl :Gpull<cr>
+nnoremap <Leader>gl :G pull<cr>
+nnoremap <Leader>gb :GV<cr>
+nnoremap <Leader>gs :G status<cr>
+nnoremap <Leader>gd :G diff<cr>
+nnoremap <Leader>gr :GBrowse<cr>
+nnoremap <Leader>gv :GV!<cr>
 
-" run current file
-nnoremap <Leader>x :!node %<cr>
+" run rubocop
+nnoremap <Leader>r :!rubocop<cr>
 
 " Use <c-space> to trigger completion.
 "if &filetype == "javascript" || &filetype == "python"
-  "inoremap <c-space> <C-x><C-u>
+"inoremap <c-space> <C-x><C-u>
 "else
-  inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 "endif
 
 
@@ -126,10 +122,10 @@ function! ParensIndent()
   let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
   let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
   if (prevChar == '"' && afterChar == '"') ||
-\    (prevChar == "'" && afterChar == "'") ||
-\    (prevChar == "(" && afterChar == ")") ||
-\    (prevChar == "{" && afterChar == "}") ||
-\    (prevChar == "[" && afterChar == "]")
+        \    (prevChar == "'" && afterChar == "'") ||
+        \    (prevChar == "(" && afterChar == ")") ||
+        \    (prevChar == "{" && afterChar == "}") ||
+        \    (prevChar == "[" && afterChar == "]")
     return "\<CR>\<ESC>O"
   endif
 
@@ -144,10 +140,10 @@ function! ParensSpacing()
   let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
   let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
   if (prevChar == '"' && afterChar == '"') ||
-\    (prevChar == "'" && afterChar == "'") ||
-\    (prevChar == "(" && afterChar == ")") ||
-\    (prevChar == "{" && afterChar == "}") ||
-\    (prevChar == "[" && afterChar == "]")
+        \    (prevChar == "'" && afterChar == "'") ||
+        \    (prevChar == "(" && afterChar == ")") ||
+        \    (prevChar == "{" && afterChar == "}") ||
+        \    (prevChar == "[" && afterChar == "]")
     return "\<space>\<space>\<left>"
   endif
 
@@ -163,10 +159,10 @@ function! ParensRemoveSpacing()
   let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
 
   if (prevChar == '"' && afterChar == '"') ||
-\    (prevChar == "'" && afterChar == "'") ||
-\    (prevChar == "(" && afterChar == ")") ||
-\    (prevChar == "{" && afterChar == "}") ||
-\    (prevChar == "[" && afterChar == "]")
+        \    (prevChar == "'" && afterChar == "'") ||
+        \    (prevChar == "(" && afterChar == ")") ||
+        \    (prevChar == "{" && afterChar == "}") ||
+        \    (prevChar == "[" && afterChar == "]")
     return "\<bs>\<right>\<bs>"
   endif
 
@@ -176,10 +172,10 @@ function! ParensRemoveSpacing()
     let prevChar = matchstr(getline('.'), '\%' . prev . 'c.')
     let afterChar = matchstr(getline('.'), '\%' . after . 'c.')
     if (prevChar == '"' && afterChar == '"') ||
-  \    (prevChar == "'" && afterChar == "'") ||
-  \    (prevChar == "(" && afterChar == ")") ||
-  \    (prevChar == "{" && afterChar == "}") ||
-  \    (prevChar == "[" && afterChar == "]")
+          \    (prevChar == "'" && afterChar == "'") ||
+          \    (prevChar == "(" && afterChar == ")") ||
+          \    (prevChar == "{" && afterChar == "}") ||
+          \    (prevChar == "[" && afterChar == "]")
       return "\<bs>\<right>\<bs>"
     endif
   endif

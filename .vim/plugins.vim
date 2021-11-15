@@ -26,10 +26,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 
-" tmux
-Plug 'benmills/vimux'
-Plug 'christoomey/vim-tmux-navigator'
-
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -49,7 +45,8 @@ Plug 'scrooloose/nerdcommenter'
 
 " git
 Plug 'tpope/vim-fugitive'
-
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 
 call plug#end()
