@@ -49,4 +49,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
+" UltiSnips
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+
 call plug#end()

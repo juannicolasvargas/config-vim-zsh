@@ -18,7 +18,9 @@ so ~/.vim/maps.vim
 so ~/.vim/nerdtree_colors.vim
 
 colorscheme gruvbox
+set bg=dark
 let g:gruvbox_contrast_dark = "medium"
+let $FZF_DEFAULT_COMMAND="rg --files -g '!node_modules' -g '!tmp'"
 highlight Normal ctermbg=NONE
 set laststatus=2
 set noshowmode

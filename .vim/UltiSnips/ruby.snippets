@@ -1,0 +1,43 @@
+snippet fro "fronzen" b
+# frozen_string_literal: true
+endsnippet
+
+snippet bb "debug" b
+binding.break
+endsnippet
+
+snippet if
+if ${1:condition}
+	${0:${VISUAL}}
+end
+endsnippet
+
+snippet def
+def ${1:method_name}
+	${0}
+end
+endsnippet
+
+snippet cla
+class ${1:`substitute(vim_snippets#Filename(), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+	${0}
+end
+endsnippet
+
+##########################
+#     Rspec snippets     #
+##########################
+
+snippet rdesc
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+RSpec.describe ${1:describe_name}, type: :_replace do
+	${0}
+end
+endsnippet
+
+snippet exp
+expect(${1:object}).to ${0}
+endsnippet
